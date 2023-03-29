@@ -1,6 +1,6 @@
 import { DivBackdrop, DivModal } from './Modal-styled';
 import PropTypes from 'prop-types';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 export function Modal({ image, closeModal }) {
   useEffect(() => {
