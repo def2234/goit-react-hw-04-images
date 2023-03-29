@@ -46,7 +46,7 @@ export function App() {
       })
       .then(image => {
         setImage(prevImage => {
-          return page === 1 ? [...image] : [...prevImage, ...image];
+          return [...prevImage, ...image];
         });
         setStatus('resolved');
       })
@@ -65,7 +65,13 @@ export function App() {
   // };
 
   const formOnsubmitHandler = value => {
-    setSerchValue(value);
+    setSerchValue(prevValue => {
+      if (prevValue !== value) {
+        setPage(1);
+        setImage([]);
+        return value;
+      }
+    });
   };
 
   const handleOnPictureClick = largeImageURL => {
