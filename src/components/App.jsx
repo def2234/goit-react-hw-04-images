@@ -65,13 +65,11 @@ export function App() {
   // };
 
   const formOnsubmitHandler = value => {
-    setSerchValue(prevValue => {
-      if (prevValue !== value) {
-        setPage(1);
-        setImage([]);
-        return value;
-      }
-    });
+    if (serchValue !== value) {
+      setPage(1);
+      setImage([]);
+      setSerchValue(value);
+    }
   };
 
   const handleOnPictureClick = largeImageURL => {
